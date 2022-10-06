@@ -73,9 +73,9 @@ async def _(bot: Bot, event: MessageEvent, state: T_State = State(), arg: Messag
                 t = float ((60/int(bpm)/int(phfm)) * j)
                 t2=round(t,7)
                 dur_per_word_lst.append(str(t2))
-        stringque=str("|".join(dur_per_word_lst))
+        durs=str("|".join(dur_per_word_lst))
         notes=str("|".join(note_per_word_lst))
-        datas=[lyric,notes,stringque]
+        datas=[lyric,notes,durs]
         data={"data":datas}
         jsonobj=json.dumps(data)
         print(jsonobj)
