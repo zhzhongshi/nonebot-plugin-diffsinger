@@ -1,6 +1,5 @@
 import base64
 import asyncio
-from re import T
 import httpx
 import json
 
@@ -8,8 +7,7 @@ from nonebot import on_command
 from nonebot.adapters.onebot.v11.bot import Bot
 from nonebot.adapters.onebot.v11.message import Message,MessageSegment
 from nonebot.adapters.onebot.v11.event import  MessageEvent
-from nonebot.typing import T_State
-from nonebot.params import State, CommandArg
+from nonebot.params import CommandArg
 async def getWavBase64(jsonstr):
     url="https://hf.space/embed/Silentlin/DiffSinger/+/api/predict/"
     async with httpx.AsyncClient() as client:
@@ -18,7 +16,7 @@ async def getWavBase64(jsonstr):
         return resp
 sing = on_command("歌声合成", priority=7)
 @sing.handle()
-async def _(bot: Bot, event: MessageEvent, state: T_State = State(), arg: Message=CommandArg()):
+async def _(bot: Bot, event: MessageEvent, arg: Message=CommandArg()):
     arg = arg.extract_plain_text()
     print(arg)
     resp=await getWavBase64(arg)
@@ -40,7 +38,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State = State(), arg: Messag
 
 sang = on_command("合成歌声", priority=7)
 @sang.handle()
-async def _(bot: Bot, event: MessageEvent, state: T_State = State(), arg: Message=CommandArg()):
+async def _(bot: Bot, event: MessageEvent, arg: Message=CommandArg()):
     arg = arg.extract_plain_text()
     print(arg)
     # 参数处理
