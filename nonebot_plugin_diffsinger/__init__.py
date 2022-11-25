@@ -9,7 +9,7 @@ from nonebot.adapters.onebot.v11.message import Message,MessageSegment
 from nonebot.adapters.onebot.v11.event import  MessageEvent
 from nonebot.params import CommandArg
 async def getWavBase64(jsonstr):
-    url="https://hf.space/embed/Silentlin/DiffSinger/+/api/predict/"
+    url="https://silentlin-diffsinger.hf.space/api/predict/"
     async with httpx.AsyncClient() as client:
         data=jsonstr
         resp = await client.post(url,data=data,timeout=5000)
