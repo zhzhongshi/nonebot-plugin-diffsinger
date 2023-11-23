@@ -82,13 +82,14 @@ def note2data(arg: str):
             if len(mididur_per_note) >1:
                 midpnote=[] # [2 2]
                 for m in mididur_per_note:
-                    # 16分音符
-                    j=float(m)
-                    # 该音符时长
-                    t = float ((60/int(bpm)/4)*j)
-                    # 保留7位小数
-                    t2=round(t,7)
-                    midpnote.append(str(t2))
+                    if not(m==""):
+                        # 16分音符
+                        j=float(m)
+                        # 该音符时长
+                        t = float ((60/int(bpm)/4)*j)
+                        # 保留7位小数
+                        t2=round(t,7)
+                        midpnote.append(str(t2))
                 midpword=str(" ".join(midpnote))
                 dur_per_word_lst.append(midpword)
             else:
