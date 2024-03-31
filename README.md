@@ -1,4 +1,4 @@
-这个配合这个项目使用（[DiffSinger-ONNX-Infer](https://github.com/zhzhongshi/DiffSinger-ONNX-Infer)
+这个配合这个项目使用（[DiffSingerMiniEngine](https://github.com/zhzhongshi/DiffSingerMiniEngine)
 
 
 怎么搭？
@@ -6,11 +6,11 @@
 ```
 python -m venv ds
 ds\Scripts\activate
-git clone https://github.com/zhzhongshi/DiffSinger-ONNX-Infer
+git clone https://github.com/zhzhongshi/DiffSingerMiniEngine
 # 从release里把模型下下来解压丢进model里（
 cd DiffSinger-ONNX-Infer
 pip install -r requirememts.txt -U
-python main.py
+python server.py
 ```
 
 
@@ -21,8 +21,37 @@ python main.py
 
 
 ```
-/ds {"data":["小酒窝长睫毛AP是你最美的记号",
-"C#4 | F#4| G#4 | A#4 F#4 | F#4 C#4 | C#4 | rest | C#4 | A#4 | G#4 | A#4 | G#4 | F4 | C#4",
-"0.407140 | 0.376190 | 0.242180 | 0.509550 0.183420 | 0.315400 0.235020 | 0.361660 | 0.223070 | 0.377270 | 0.340550 | 0.299620 | 0.344510 | 0.283770 | 0.323390 | 0.360340"]
-}
+/diffsinger 120~[
+[60,2,"AP"],
+[57,2,"ba"],
+[59,2,"ni"],
+[60,2,"peng"],
+[64,2,"zai"],
+[62,2,"shou"],
+[60,2,"+"],
+[62,8,"shang"],
+[60,4,"AP"],
+[57,2,"he"],
+[59,2,"qi"],
+[60,12,"le"],
+[59,4,"shou"],
+[55,16,"zhang"],
+[60,4,"AP"]
+]|120~[
+[60,4,"dao"],
+[62,4,"lai"],
+[64,4,"mi"],
+[65,4,"fa"],
+[67,4,"sao"],
+[69,4,"la"],
+[71,4,"xi"]
+]|90~[
+[60,4,"dao"],
+[62,4,"lai"],
+[64,4,"mi"],
+[65,4,"fa"],
+[67,4,"sao"],
+[69,4,"la"],
+[71,4,"xi"]
+]
 ```
