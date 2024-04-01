@@ -8,7 +8,7 @@ python -m venv ds
 ds\Scripts\activate
 git clone https://github.com/zhzhongshi/DiffSingerMiniEngine
 # 从release里把模型下下来解压丢进model里（
-cd DiffSinger-ONNX-Infer
+cd DiffSingerMiniEngine
 pip install -r requirememts.txt -U
 python server.py
 ```
