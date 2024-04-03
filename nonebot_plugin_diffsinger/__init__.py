@@ -12,8 +12,8 @@ import httpx
 import time
 
 __plugin_meta__ = PluginMetadata(
-    name="金币管理",
-    description="只是为了有地方花金币= =",
+    name="diffsinger",
+    description="用DiffSinger让bot唱歌",
     usage="""
 /diffsinger bpm~[[音高60,时值1,"pinyin"],[音高62,时值1,"pinyin"],...]
 例：
