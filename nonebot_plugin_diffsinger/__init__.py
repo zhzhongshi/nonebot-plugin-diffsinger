@@ -5,15 +5,12 @@ from nonebot.adapters.onebot.v11.event import  MessageEvent
 from nonebot.params import CommandArg
 from nonebot.plugin import PluginMetadata
 from nonebot import get_plugin_config
-from httpx import Response
 from .config import Config
 
 from .data_source import get_f0, process_notes, bpm2dur
-import nonebot
 import asyncio
 import json
 import httpx
-import time
 
 __plugin_meta__ = PluginMetadata(
     name="diffsinger",
@@ -49,12 +46,12 @@ ds = on_command("diffsinger", priority=7)
 plugin_config = get_plugin_config(Config)
 url=plugin_config.ds_url
 
-async def send_request(method, url, data=None,params=None) ->Response:
+async def send_request(method, url, data=None,params=None):
     async with httpx.AsyncClient() as client:
         if method == "GET":
             response = await client.get(url,params=params)
         elif method == "POST":
-            response = await client.post(url, json=data,params=params)
+            response = await client.post(url, json=data)
         return response
     
 @ds.handle()
@@ -69,7 +66,7 @@ async def sendcmd(bot: Bot, event: MessageEvent, arg: Message=CommandArg()):
     
     phone_dict=await send_request("GET",f"{url}getdict")
     req=process_notes(preps,phone_dict.json())
-    phonemes=get_rhythm(req)
+    phonemes=await get_rhythm(req)
     f0=get_f0(req)
     model="1215_opencpop_ds1000_fix_label_nomidi"
     submit_req={
@@ -82,11 +79,12 @@ async def sendcmd(bot: Bot, event: MessageEvent, arg: Message=CommandArg()):
         "speedup": 255
     }
     
-    submit=await send_request("POST", f"{url}submit", submit_req)
+    submit=await send_request("POST",f"{url}submit", submit_req)
+    submit=submit.json()
     wav=None
     while True:
         await asyncio.sleep(1)
-        stat = await send_request("POST", f'{url}query', {"token": submit.json()["token"]})
+        stat = await send_request("POST", f'{url}query', {"token": submit["token"]})
         stat=stat.json()
         if stat["status"]=="HIT_CACHE":
             break
@@ -101,7 +99,7 @@ async def sendcmd(bot: Bot, event: MessageEvent, arg: Message=CommandArg()):
         elif stat["status"] == "CANCELLED":
             await ds.finish("已取消")
         
-    wav=await send_request("GET",f"{url}download",params={"token":submit.json()["token"]})
+    wav=await send_request("GET",f"{url}download",params={"token":submit["token"]})
     await ds.finish(MessageSegment.record(wav.content))
     
 async def get_rhythm(req):
