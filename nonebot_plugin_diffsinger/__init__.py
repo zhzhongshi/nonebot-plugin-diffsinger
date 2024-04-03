@@ -3,16 +3,46 @@ from nonebot.adapters.onebot.v11.bot import Bot
 from nonebot.adapters.onebot.v11.message import Message,MessageSegment
 from nonebot.adapters.onebot.v11.event import  MessageEvent
 from nonebot.params import CommandArg
+from nonebot.plugin import PluginMetadata
 
 from .data_source import get_f0, process_notes, bpm2dur
 
 import json
 import httpx
 import time
+
+__plugin_meta__ = PluginMetadata(
+    name="金币管理",
+    description="只是为了有地方花金币= =",
+    usage="""
+/diffsinger bpm~[[音高60,时值1,"pinyin"],[音高62,时值1,"pinyin"],...]
+例：
+/diffsinger 120~[
+[60,2,"AP"],
+[57,2,"ba"],
+[59,2,"ni"],
+[60,2,"peng"],
+[64,2,"zai"],
+[62,2,"shou"],
+[60,2,"+"],
+[62,8,"shang"],
+[60,4,"AP"],
+[57,2,"he"],
+[59,2,"qi"],
+[60,12,"le"],
+[59,4,"shou"],
+[55,16,"zhang"],
+[60,4,"AP"]
+]
+
+""",
+    type="application",
+    homepage="https://github.com/zhzhongshi/nonebot-plugin-diffsinger",
+)
+
 ds = on_command("diffsinger", priority=7)
 url="http://127.0.0.1:9266/"
 
-    
 @ds.handle()
 async def sendcmd(bot: Bot, event: MessageEvent, arg: Message=CommandArg()):
     arg = arg.extract_plain_text()

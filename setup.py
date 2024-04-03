@@ -14,13 +14,10 @@ URL = 'https://github.com/zhzhongshi/nonebot-plugin-diffsinger'
 EMAIL = 'zhzhongshi@qq.com'
 AUTHOR = 'zhzhongshi'
 REQUIRES_PYTHON = '>=3.8.0'
-VERSION = '0.1.0'
-
-# What packages are required for this module to be executed?
+VERSION = '0.1.1'
 REQUIRED = [
     "nonebot2","nonebot-adapter-onebot","httpx","librosa"
 ]
-
 # What packages are optional?
 EXTRAS = {
 }
