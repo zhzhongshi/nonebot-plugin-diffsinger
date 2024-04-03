@@ -2,19 +2,19 @@
 
 
 怎么搭？
-我只在windows上跑的，欢迎PR（
+我只在windows上跑的，欢迎PR（）
 ```
 python -m venv ds
 ds\Scripts\activate
 git clone https://github.com/zhzhongshi/DiffSingerMiniEngine
-# 从release里把模型下下来解压丢进model里（
+# 从release里把模型下下来解压丢进去（
 cd DiffSingerMiniEngine
 pip install -r requirememts.txt -U
 python server.py
 ```
 
 
-然后搭建nb，从nb里把插件跑起来（  
+然后搭建nb，从nb里把插件跑起来
 
 
 测试指令

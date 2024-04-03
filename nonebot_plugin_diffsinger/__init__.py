@@ -35,7 +35,7 @@ async def sendcmd(bot: Bot, event: MessageEvent, arg: Message=CommandArg()):
             "timestep":0.005,
             "values":f0
         },
-        "speedup": 50
+        "speedup": 255
     }
     
     submit=httpx.request("POST",f"{url}submit", json=submit_req).json()
