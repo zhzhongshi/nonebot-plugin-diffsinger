@@ -1,4 +1,4 @@
-这个配合这个项目使用（[DiffSingerMiniEngine](https://github.com/zhzhongshi/DiffSingerMiniEngine)
+这个需要配合这个项目使用（[DiffSingerMiniEngine](https://github.com/zhzhongshi/DiffSingerMiniEngine)
 
 
 怎么搭？
@@ -7,15 +7,25 @@
 python -m venv ds
 ds\Scripts\activate
 git clone https://github.com/zhzhongshi/DiffSingerMiniEngine
-# 从release里把模型下下来解压丢进去（
 cd DiffSingerMiniEngine
+# 从release里把模型下下来解压丢进去（
 pip install -r requirememts.txt -U
 python server.py
 ```
 
 
 然后搭建nb，从nb里把插件跑起来
+我默认你会用nb-cli
+```
+nb plugin install nonebot-plugin-diffsinger
+```
+插件会自动添加到你pyproject.toml里面
 
+你要是打算用pip安装的话
+```
+pip install nonebot-plugin-diffsinger
+```
+别忘了把"nonebot-plugin-diffsinger"加到pyproject.toml里面的"plugins"里面
 
 测试指令
 
