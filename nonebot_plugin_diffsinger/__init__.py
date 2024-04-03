@@ -45,6 +45,7 @@ __plugin_meta__ = PluginMetadata(
 ds = on_command("diffsinger", priority=7)
 plugin_config = get_plugin_config(Config)
 url=plugin_config.ds_url
+ds_speedup=plugin_config.ds_speedup
 
 async def send_request(method, url, data=None,params=None):
     async with httpx.AsyncClient() as client:
@@ -76,7 +77,7 @@ async def sendcmd(bot: Bot, event: MessageEvent, arg: Message=CommandArg()):
             "timestep":0.005,
             "values":f0
         },
-        "speedup": 255
+        "speedup": ds_speedup
     }
     
     submit=await send_request("POST",f"{url}submit", submit_req)
