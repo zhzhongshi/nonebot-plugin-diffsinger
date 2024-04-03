@@ -27,6 +27,12 @@ pip install nonebot-plugin-diffsinger
 ```
 别忘了把"nonebot-plugin-diffsinger"加到pyproject.toml里面的"plugins"里面
 
+配置
+```
+DS_URL="http://127.0.0.1:9266/" #后端的地址
+DS_SPEEDUP=200 #后端的推理速度，建议10-255
+```
+
 测试指令
 
 
