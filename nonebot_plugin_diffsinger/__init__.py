@@ -38,6 +38,7 @@ __plugin_meta__ = PluginMetadata(
 """,
     type="application",
     homepage="https://github.com/zhzhongshi/nonebot-plugin-diffsinger",
+    supported_adapters={"~onebot.v11"}
 )
 
 ds = on_command("diffsinger", priority=7)
