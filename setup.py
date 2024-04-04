@@ -7,6 +7,8 @@ from shutil import rmtree
 
 from setuptools import find_packages, setup, Command
 
+#todo pyproject.toml for poetry
+
 # Package meta-data.
 NAME = 'nonebot_plugin_diffsinger'
 DESCRIPTION = '用DiffSinger让bot唱歌'
@@ -14,12 +16,16 @@ URL = 'https://github.com/zhzhongshi/nonebot-plugin-diffsinger'
 EMAIL = 'zhzhongshi@qq.com'
 AUTHOR = 'zhzhongshi'
 REQUIRES_PYTHON = '>=3.8.0'
-VERSION = '0.1.8'
+VERSION = '0.1.9'
 REQUIRED = [
-    "nonebot2","nonebot-adapter-onebot","httpx","librosa"
+    "nonebot2>=2.2.0,<3.0.0",
+    "nonebot-adapter-onebot",
+    "httpx",
+    "librosa"
 ]
 # What packages are optional?
 EXTRAS = {
+    
 }
 
 # The rest you shouldn't have to touch too much :)
