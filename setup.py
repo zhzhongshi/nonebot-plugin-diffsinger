@@ -16,7 +16,7 @@ URL = 'https://github.com/zhzhongshi/nonebot-plugin-diffsinger'
 EMAIL = 'zhzhongshi@qq.com'
 AUTHOR = 'zhzhongshi'
 REQUIRES_PYTHON = '>=3.8.0'
-VERSION = '0.1.9'
+VERSION = '0.1.10'
 REQUIRED = [
     "nonebot2>=2.2.0,<3.0.0",
     "nonebot-adapter-onebot",
@@ -25,7 +25,6 @@ REQUIRED = [
 ]
 # What packages are optional?
 EXTRAS = {
-    
 }
 
 # The rest you shouldn't have to touch too much :)
