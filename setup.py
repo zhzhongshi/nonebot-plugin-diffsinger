@@ -7,7 +7,7 @@ from shutil import rmtree
 
 from setuptools import find_packages, setup, Command
 
-#todo pyproject.toml for poetry
+# todo pyproject.toml for poetry
 
 # Package meta-data.
 NAME = 'nonebot_plugin_diffsinger'
