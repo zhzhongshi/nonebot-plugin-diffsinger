@@ -1,6 +1,6 @@
 [project]
 name = "nonebot-plugin-diffsinger"
-version = "0.1.11"
+version = "0.1.12"
 description = "用DiffSinger让bot唱歌"
 authors = [{ name = "zhzhongshi", email = "zhz894524@163.com" }]
 license = { text = "MIT" }
