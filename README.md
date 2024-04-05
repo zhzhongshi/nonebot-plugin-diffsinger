@@ -1,8 +1,8 @@
 这个需要配合这个项目使用（[DiffSingerMiniEngine](https://github.com/zhzhongshi/DiffSingerMiniEngine)
 
-
 怎么搭？
 我只在windows上跑的，欢迎PR（）
+
 ```
 python -m venv ds
 ds\Scripts\activate
@@ -13,28 +13,31 @@ pip install -r requirememts.txt -U
 python server.py
 ```
 
-
 然后搭建nb，从nb里把插件跑起来
 我默认你会用nb-cli
+
 ```
 nb plugin install nonebot-plugin-diffsinger
 ```
+
 插件会自动添加到你pyproject.toml里面
 
 你要是打算用pip安装的话
+
 ```
 pip install nonebot-plugin-diffsinger
 ```
+
 别忘了把"nonebot-plugin-diffsinger"加到pyproject.toml里面的"plugins"里面
 
 配置
+
 ```
 DS_URL="http://127.0.0.1:9266/" #后端的地址
 DS_SPEEDUP=200 #后端的推理速度，建议10-255
 ```
 
 测试指令
-
 
 ```
 /diffsinger 120~[

@@ -88,7 +88,10 @@ async def sendcmd(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
     wav = None
     while True:
         await asyncio.sleep(1)
-        stat = await send_request("POST", f'{url}query', {"token": submit["token"]})
+        stat = await send_request(
+            "POST", f'{url}query',
+            {"token": submit["token"]}
+        )
         stat = stat.json()
         if stat["status"] == "HIT_CACHE":
             break
@@ -103,7 +106,10 @@ async def sendcmd(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
         elif stat["status"] == "CANCELLED":
             await ds.finish("已取消")
 
-    wav = await send_request("GET", f"{url}download", params={"token": submit["token"]})
+    wav = await send_request(
+        "GET", f"{url}download",
+        params={"token": submit["token"]}
+    )
     await ds.finish(MessageSegment.record(wav.content))
 
 

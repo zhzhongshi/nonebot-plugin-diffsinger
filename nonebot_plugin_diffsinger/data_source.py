@@ -10,13 +10,25 @@ def process_notes(preps, phone_dict):
         else:
             if prep[2] in ["AP", "SP"]:
                 notes.append(
-                    {"key": prep[0], "duration": prep[1], "slur": False, "phonemes": [prep[2]]})
+                    {
+                        "key": prep[0],
+                        "duration": prep[1],
+                        "slur": False,
+                        "phonemes": [prep[2]]
+                    }
+                )
             elif prep[2] == "+":
                 notes.append(
                     {"key": prep[0], "duration": prep[1], "slur": True})
             else:
                 notes.append(
-                    {"key": prep[0], "duration": prep[1], "slur": False, "phonemes": [prep[2]]})
+                    {
+                        "key": prep[0],
+                        "duration": prep[1],
+                        "slur": False,
+                        "phonemes": [prep[2]]
+                    }
+                )
     req = {"notes": notes}
     return req
 
